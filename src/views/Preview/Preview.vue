@@ -1,0 +1,218 @@
+<template>
+  <div class="preview">
+    <el-row :gutter="24">
+      <el-col :span="12"
+        ><el-card>
+          <div class="info">
+            <div class="avator">
+              <i class="el-icon-platform-eleme"></i>
+            </div>
+            <div class="title">
+              <span>Mr.Yan</span>
+            </div>
+            <div class="subtitle">
+              <span
+                >You have done 57.6% more sales today. Check your new badge in
+                your profile.
+              </span>
+            </div>
+          </div>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card>
+          <div class="charts-01 charts" id="charts-01"></div>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card> <div class="charts-02 charts" id="charts-02"></div></el-card
+      ></el-col>
+    </el-row>
+
+    <div class="bar"></div>
+    <el-row :gutter="24">
+      <el-col :span="12">
+        <el-card>
+          <div class="drop">
+            <el-dropdown trigger="click">
+              <span class="el-dropdown-link">
+                下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+              <template #dropdown>
+                <el-dropdown-menu>
+                  <el-dropdown-item>黄金糕</el-dropdown-item>
+                  <el-dropdown-item>狮子头</el-dropdown-item>
+                  <el-dropdown-item>螺蛳粉</el-dropdown-item>
+                  <el-dropdown-item disabled>双皮奶</el-dropdown-item>
+                  <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+                </el-dropdown-menu>
+              </template>
+            </el-dropdown>
+          </div>
+          <div class="bar"></div>
+          <div class="total">
+            <div class="staticer">
+              <p class="title">2.7K Star</p>
+              <i class="el-icon-bottom"></i>
+              <p class="title">下降300%</p>
+              <p>直接通过设置类名为 el-icon-iconName 来使用即可。例如：</p>
+              <div class="block">
+                <el-slider :model-value="silderValue" disabled></el-slider>
+              </div>
+            </div>
+            <div class="charts-03 charts" id="charts-03"></div>
+          </div>
+        </el-card>
+      </el-col>
+      <el-col :span="12">
+        <el-card>
+          <div class="drop">
+            <el-dropdown trigger="click">
+              <span class="el-dropdown-link">
+                下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+              <template #dropdown>
+                <el-dropdown-menu>
+                  <el-dropdown-item>黄金糕</el-dropdown-item>
+                  <el-dropdown-item>狮子头</el-dropdown-item>
+                  <el-dropdown-item>螺蛳粉</el-dropdown-item>
+                  <el-dropdown-item disabled>双皮奶</el-dropdown-item>
+                  <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+                </el-dropdown-menu>
+              </template>
+            </el-dropdown>
+          </div>
+          <div class="bar"></div>
+          <div class="charts-04 charts" id="charts-04"></div>
+        </el-card>
+      </el-col>
+    </el-row>
+    <div class="bar"></div>
+    <el-row :gutter="24">
+      <el-col :span="8">
+        <el-card>
+          <div class="charts charts-05" id="charts-05"></div>
+        </el-card>
+      </el-col>
+      <el-col :span="8">
+        <el-card>
+          <div class="charts charts-06" id="charts-06"></div>
+        </el-card>
+      </el-col>
+      <el-col :span="8">
+        <el-card>
+          <div class="charts charts-07" id="charts-07"></div>
+        </el-card>
+      </el-col>
+    </el-row>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, onMounted, ref } from "vue";
+import * as echarts from "echarts";
+import chartsOptions from "./data";
+export default defineComponent({
+  setup() {
+    const createCharts = function (id: string, options: any) {
+      // 基于准备好的dom，初始化echarts实例
+      const myChart = echarts.init(
+        document.getElementById(id) as HTMLCanvasElement
+      );
+      // 绘制图表
+      myChart.setOption(options);
+    };
+    const silderValue = ref(46);
+    onMounted(() => {
+      createCharts("charts-01", chartsOptions.lineCharts01);
+      createCharts("charts-02", chartsOptions.lineCharts02);
+      createCharts("charts-03", chartsOptions.barChartsOptions);
+      createCharts("charts-04", chartsOptions.twoBarChartsOptions);
+      createCharts("charts-05", chartsOptions.circleCahrtsOptions);
+      createCharts("charts-06", chartsOptions.LDChartsOptions);
+      createCharts("charts-07", chartsOptions.speedChartsOptions);
+    });
+    return { silderValue };
+  },
+});
+</script>
+
+<style lang="less" scoped>
+.preview {
+  padding: 10px;
+}
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  color: #fff;
+  background: linear-gradient(to right, #a69dff, #7e72f2);
+  .avator {
+    i {
+      font-size: 69px;
+      color: #fff;
+    }
+    width: 110px;
+    height: 110px;
+    background: #6457e8;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .title {
+    margin: 10px;
+    font-size: 20px;
+  }
+  .subtitle {
+    font-size: 16px;
+  }
+}
+.charts {
+  height: 300px;
+}
+.charts-03 {
+  width: 300px;
+}
+.charts-05,
+.charts-06,
+.charts-07 {
+  height: 400px;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .staticer {
+    width: 270px;
+    i {
+      font-size: 24px;
+      color: #67c23a;
+    }
+    font-size: 12px;
+    .title {
+      font-size: 20px;
+      color: #67c23a;
+    }
+  }
+}
+.bar {
+  height: 20px;
+}
+.drop {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  .el-dropdown-link {
+    cursor: pointer;
+    color: #409eff;
+  }
+  .el-icon-arrow-down {
+    font-size: 12px;
+  }
+}
+</style>

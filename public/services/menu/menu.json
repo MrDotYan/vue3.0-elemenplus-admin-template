@@ -1,0 +1,50 @@
+[
+  {
+    "group": "Console",
+    "icon": "el-icon-location",
+    "path": "/dashbord",
+    "title": "控制面板",
+    "meta": {
+      "auth": true
+    },
+    "component": "views/Dashbord/Dashbord.vue"
+  },
+  {
+    "group": "Preview",
+    "icon": "el-icon-location",
+    "path": "/preview",
+    "title": "预览",
+    "meta": {
+      "auth": true
+    },
+    "component": "views/Preview/Preview.vue"
+  },
+  {
+    "group": "Menu",
+    "icon": "el-icon-location",
+    "path": null,
+    "title": "菜单组",
+    "children": [
+      {
+        "path": "/about",
+        "name": "About",
+        "meta": {
+          "title": "关于",
+          "icon": "el-icon-menu",
+          "auth": true
+        },
+        "component": "views/About/About.vue"
+      },
+      {
+        "path": "/lin",
+        "name": "Lin",
+        "meta": {
+          "title": "协议",
+          "icon": "el-icon-menu",
+          "auth": true
+        },
+        "component": "views/About/Lin.vue"
+      }
+    ]
+  }
+]
