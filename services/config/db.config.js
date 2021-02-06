@@ -13,9 +13,9 @@ exports.mariadb = {
   type: "MariaDB",
   config: {
     host: "127.0.0.1",
-    user: '',
-    password: '',
-    database: '',
+    user: 'vue3-element-plus-admin',
+    password: 'vue3-element-plus-admin',
+    database: 'vue3-element-plus-admin',
     port: 3306
   }
 }

@@ -9,47 +9,57 @@ cd vue3.0-elemenplus-admin-template && yarn install && yarn serve
 
 ```json
 {
-    "group": "Preview",
-    "icon": "el-icon-location",
-    "path": "/preview",
-    "title": "预览",
-    "meta": {
-      "auth": true
+    "_id" : ObjectId("601e29e17959918d5caa6829"),
+    "_fid" : "",
+    "group" : "MenuGroup",
+    "path" : null,
+    "name" : "",
+    "sort" : 2,
+    "meta" : {
+        "auth" : true,
+        "title" : "系统声明",
+        "icon" : "el-icon-location"
     },
-    "component": "views/Preview/Preview.vue"
-  },
-  {
-    "group": "Menu",
-    "icon": "el-icon-location",
-    "path": null,
-    "title": "菜单组",
-    "children": [
-      {
-        "path": "/about",
-        "name": "About",
-        "meta": {
-          "title": "关于",
-          "icon": "el-icon-menu",
-          "auth": true
-        },
-        "component": "views/About/About.vue"
-      },
-      {
-        "path": "/lin",
-        "name": "Lin",
-        "meta": {
-          "title": "协议",
-          "icon": "el-icon-menu",
-          "auth": true
-        },
-        "component": "views/About/Lin.vue"
-      }
+    "children" : [ 
+        {
+            "_fid" : "601e29e17959918d5caa6829",
+            "group" : "",
+            "path" : "/about",
+            "name" : "About",
+            "sort" : 1,
+            "meta" : {
+                "auth" : true,
+                "title" : "关于",
+                "icon" : "el-icon-menu"
+            },
+            "component" : "views/About/About.vue",
+            "_id" : ObjectId("601e2a2c7959918d5caa682a")
+        }, 
+        {
+            "_fid" : "601e29e17959918d5caa6829",
+            "group" : "",
+            "path" : "/lin",
+            "name" : "Lin",
+            "sort" : 2,
+            "meta" : {
+                "auth" : true,
+                "title" : "协议",
+                "icon" : "el-icon-menu"
+            },
+            "component" : "views/About/Lin.vue",
+            "_id" : ObjectId("601e2a407959918d5caa682b")
+        }
     ]
-  }
+}
 ```
 
- - 上面展示了两种类型的菜单，一种是单独的菜单，另外一种是组合的菜单。
- - 菜单放在public/services/menu目录下是一个json，当然也可以后台按照格式返回json
- - 请求star
+- 目前菜单放到了mongodb数据库中
 
 # 预览 
+
+![](./screen/capture_20210206142106517.bmp)
+
+
+![](./screen/capture_20210206142033375.bmp)
+
+![](./screen/capture_20210206142018522.bmp)
