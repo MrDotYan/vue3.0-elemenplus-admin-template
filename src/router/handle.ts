@@ -3,8 +3,8 @@ import sessionStore from 'store/storages/sessionStorage';
 export default function createRouterFromSessionStore() {
   // 从sessionStorage里面获取路由配置信息
   const routerStr = sessionStore.read('config') || "[]";
-  // 返回一个group值
-  return JSON.parse(routerStr).map((ele: any) => {
+
+  const group = JSON.parse(routerStr).map((ele: any) => {
     // 同样是两种情况
     if (ele.path !== null) {
       // 第一种是group不成组，而是直接成为单个路由
@@ -36,4 +36,11 @@ export default function createRouterFromSessionStore() {
       }
     }
   });
+  // 菜单排序，数字越大，越往后
+  const tempGroup = group.sort(function (a: any, b: any) {
+    return a.sort - b.sort;
+  });
+
+  // 返回一个group值
+  return tempGroup;
 }

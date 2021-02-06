@@ -32,9 +32,10 @@
 import sessionStore from "store/storages/sessionStorage";
 import { defineComponent, reactive } from "vue";
 import { useRouter } from "vue-router";
-import reuqest from "@/request/request";
+import Api from "@/request/api";
 import sRouters from "@/router/handle";
 import { useStore } from "vuex";
+
 export default defineComponent({
   setup() {
     // 定义响应式数据
@@ -101,7 +102,7 @@ export default defineComponent({
           // 如果验证成功，那就提交信息，获取菜单数据
           // 现在的这个请求，是把json放到了public目录下
           // 相当于当前域名同源请求
-          reuqest.get("/services/menu/menu.json", {}).then((res) => {
+          Api.getMenu({}).then((res) => {
             // 缓存当前菜单培训hi信息
             sessionStore.write("config", JSON.stringify(res));
             // 缓存当前获取的token信息

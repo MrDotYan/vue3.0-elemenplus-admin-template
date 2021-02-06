@@ -24,8 +24,8 @@
     <template v-for="group of groupRouters" :key="group?.group">
       <el-submenu :index="group?.group" v-if="group?.path == null">
         <template #title>
-          <i :class="group?.icon"></i>
-          <span>{{ group?.title }}</span>
+          <i :class="group?.meta?.icon"></i>
+          <span>{{ group?.meta?.title }}</span>
         </template>
         <template v-if="group?.children">
           <el-menu-item
@@ -42,9 +42,9 @@
         </template>
       </el-submenu>
       <el-menu-item v-else :route="group" :index="group?.group">
-        <i :class="group?.icon"></i>
+        <i :class="group?.meta?.icon"></i>
         <template #title>
-          <span>{{ group?.title }}</span>
+          <span>{{ group?.meta?.title }}</span>
         </template>
       </el-menu-item>
     </template>
@@ -98,6 +98,7 @@ export default defineComponent({
     };
     // 处理当前选中的菜单项
     const selectChildMenu = function (index: string, indexPath: Array<string>) {
+      console.log(index, indexPath);
       defaultActiveIndex.value = index;
       // 这里由于示例的菜单数据只有两级，所以这里逻辑分开写
       if (indexPath.length == 1) {
@@ -107,7 +108,7 @@ export default defineComponent({
           return ele?.group == indexPath[0];
         });
         // 使用Vuex
-        breadcrumb.value = [currentRouter.title];
+        breadcrumb.value = [currentRouter?.meta?.title];
         store.dispatch("CHANGEBREADCRUMB", breadcrumb.value);
       } else {
         // 否则就是菜单组里面包含子菜单的情况
@@ -120,7 +121,7 @@ export default defineComponent({
           if (groupTags === ele.group) {
             ele.children.forEach((item: any) => {
               if (currentRouters === item.name) {
-                breadcrumb.value = [ele.title, item.meta.title];
+                breadcrumb.value = [ele?.meta?.title, item?.meta?.title];
                 // 设置菜单 actios
                 store.dispatch("CHANGEBREADCRUMB", breadcrumb.value);
               }
@@ -152,18 +153,16 @@ export default defineComponent({
           });
           // 如果group的path不是null
           if (filtersRouter.path === null) {
-            breadcrumb.value = [filtersRouter?.title, to?.meta?.title];
+            breadcrumb.value = [filtersRouter?.meta?.title, to?.meta?.title];
             defaultActiveIndex.value = to?.name;
-            console.log(defaultActiveIndex.value);
             sessionStore.write(
               "defaultActiveIndex",
               JSON.stringify(defaultActiveIndex.value)
             );
           } else {
-            breadcrumb.value = [filtersRouter?.title];
+            breadcrumb.value = [filtersRouter?.meta?.title];
             defaultOpeneds.value = [filtersRouter?.group];
             defaultActiveIndex.value = filtersRouter?.group;
-            console.log(defaultOpeneds.value);
             sessionStore.write(
               "defaultOpeneds",
               JSON.stringify(defaultOpeneds.value)
