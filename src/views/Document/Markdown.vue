@@ -75,9 +75,10 @@ export default defineComponent({
 .padding10px {
   padding: 10px;
   text-align: left;
-  width: 100%;
+  width: 82vw;
   height: 100%;
   overflow: hidden;
+  margin: 0 auto;
 }
 .flex-wrapper {
   display: flex;
@@ -85,7 +86,7 @@ export default defineComponent({
   align-items: center;
   margin-top: 10px;
   overflow: hidden;
-  width: calc(100vw - 300px);
+  width: 80vw;
   height: 100%;
 }
 .edit-container {
