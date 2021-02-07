@@ -154,6 +154,7 @@ export default defineComponent({
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-right: 30px;
   .full-screen {
     margin: 0 10px;
   }

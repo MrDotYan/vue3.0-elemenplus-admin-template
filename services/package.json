@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "debug": "^4.1.1",
+    "docx": "^5.5.0",
+    "jspdf": "^2.3.0",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-convert": "^1.2.0",

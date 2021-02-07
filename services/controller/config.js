@@ -55,7 +55,6 @@ module.exports = class ConfigController {
             return false;
           });
 
-
           if (childrenHasSameOptions.length == 0) {
             deepFindIDRes.children.push(ops);
             delete deepFindIDRes._id;

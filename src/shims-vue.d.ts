@@ -7,3 +7,6 @@ declare module '*.vue' {
 
 
 declare module 'store/storages/sessionStorage';
+declare module 'file-saver';
+declare module 'markdown-it';
+declare module 'highlight.js/lib/core';

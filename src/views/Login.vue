@@ -8,13 +8,13 @@
         label-width="80px"
         :inline="false"
       >
-        <el-form-item>
+        <el-form-item label-width="0px">
           <el-input v-model="form.userName" placeholder="用户名"></el-input>
         </el-form-item>
-        <el-form-item>
+        <el-form-item label-width="0px">
           <el-input v-model="form.password" placeholder="密码"></el-input>
         </el-form-item>
-        <el-form-item>
+        <el-form-item label-width="0px">
           <el-button
             class="btn"
             type="primary"
@@ -124,12 +124,21 @@ export default defineComponent({
   align-items: center;
   width: 100vw;
   height: 100vh;
+  background: url("../assets/background.png");
 }
 .wrapper {
   width: 500px;
   height: 400px;
   box-sizing: border-box;
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: rgb(225, 243, 216);
+  .el-form {
+    width: 360px;
+  }
   .btn {
     width: 100%;
   }
