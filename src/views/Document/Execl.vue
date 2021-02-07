@@ -98,16 +98,6 @@ export default defineComponent({
         return "." + x;
       })
       .join(",");
-    // let data: any[] = reactive();
-    // let cols: any[] = reactive([
-    //   { name: "A", key: 0 },
-    //   { name: "B", key: 1 },
-    //   { name: "C", key: 2 },
-    //   { name: "D", key: 3 },
-    //   { name: "E", key: 4 },
-    //   { name: "F", key: 5 },
-    //   { name: "G", key: 6 },
-    // ]);
 
     const data: any = reactive({
       data: ["SheetJS".split(""), "1234567".split("")],

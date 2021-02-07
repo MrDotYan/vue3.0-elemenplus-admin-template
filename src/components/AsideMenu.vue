@@ -52,7 +52,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, Ref, ref } from "vue";
+import { defineComponent, reactive, ref } from "vue";
 import createSessionRouter from "@/router/handle";
 import sessionStore from "store/storages/sessionStorage";
 import { useStore } from "vuex";
@@ -98,7 +98,7 @@ export default defineComponent({
     };
     // 处理当前选中的菜单项
     const selectChildMenu = function (index: string, indexPath: Array<string>) {
-      console.log(index, indexPath);
+      // console.log(index, indexPath);
       defaultActiveIndex.value = index;
       // 这里由于示例的菜单数据只有两级，所以这里逻辑分开写
       if (indexPath.length == 1) {

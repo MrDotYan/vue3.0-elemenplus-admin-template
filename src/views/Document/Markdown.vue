@@ -29,6 +29,7 @@ export default defineComponent({
       html: true,
       highlight: function (str: string, lang: any = "javascript") {
         // console.log(lang);
+        // 配置hljs，貌似我自己也没有搞懂
         if (lang && hljs.getLanguage(lang)) {
           try {
             return (

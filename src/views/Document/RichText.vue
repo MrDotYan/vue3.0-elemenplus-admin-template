@@ -27,15 +27,19 @@ export default defineComponent({
   setup() {
     const context = ref("");
     onMounted(() => {
+      // 要在mounted以后才能找到dom结构
       const editor = new E("#edit-rich-text");
+      // 设置编辑器配置
       editor.config.height = 500;
       editor.config.zIndex = 1;
+      // 获取编辑内容
       editor.config.onchange = (newHtml: any) => {
         context.value = newHtml;
       };
 
       editor.create();
     });
+    // 打开抽屉预览
     const drawer = ref(false);
     const saveHtml = function () {
       drawer.value = true;

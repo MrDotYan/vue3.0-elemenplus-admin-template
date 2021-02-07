@@ -94,6 +94,7 @@ export default defineComponent({
         //页面偏移
         let position = 10;
         //a4纸的尺寸[595.28,841.89]，html页面生成的canvas在pdf中图片的宽高
+        // 这里剪掉20像素的页面边距
         const imgWidth = 595.28 - 20;
         const imgHeight = (592.28 / contentWidth) * contentHeight;
 
