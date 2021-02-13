@@ -3,6 +3,9 @@
 ```bash
 git clone  https://github.com/MrDotYan/vue3.0-elemenplus-admin-template.git && 
 cd vue3.0-elemenplus-admin-template && yarn install && yarn serve
+
+
+cd services && yarn install && yarn dev //运行后台程序
 ```
 
 # 注意菜单配置
@@ -54,6 +57,7 @@ cd vue3.0-elemenplus-admin-template && yarn install && yarn serve
 ```
 
 - 目前菜单放到了mongodb数据库中
+
 
 # 预览 
 
