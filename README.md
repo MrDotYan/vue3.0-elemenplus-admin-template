@@ -12,52 +12,35 @@ cd services && yarn install && yarn dev //运行后台程序
 
 ```json
 {
-    "_id" : ObjectId("601e29e17959918d5caa6829"),
-    "_fid" : "",
-    "group" : "MenuGroup",
+    "_id" : ObjectId("601e0c8c16c3c5da5451c05a"),
+    "group" : "Setting",
     "path" : null,
-    "name" : "",
-    "sort" : 2,
+    "sort" : 9999,
     "meta" : {
         "auth" : true,
-        "title" : "系统声明",
-        "icon" : "el-icon-location"
+        "icon" : "el-icon-setting",
+        "title" : "系统设置"
     },
     "children" : [ 
         {
-            "_fid" : "601e29e17959918d5caa6829",
-            "group" : "",
-            "path" : "/about",
-            "name" : "About",
-            "sort" : 1,
+            "_id" : ObjectId("601e0c8c16c3c5da5451c05b"),
+            "path" : "/menu",
+            "name" : "Menu",
+            "sort" : 0,
             "meta" : {
-                "auth" : true,
-                "title" : "关于",
-                "icon" : "el-icon-menu"
+                "title" : "菜单管理",
+                "icon" : "el-icon-menu",
+                "auth" : true
             },
-            "component" : "views/About/About.vue",
-            "_id" : ObjectId("601e2a2c7959918d5caa682a")
-        }, 
-        {
-            "_fid" : "601e29e17959918d5caa6829",
-            "group" : "",
-            "path" : "/lin",
-            "name" : "Lin",
-            "sort" : 2,
-            "meta" : {
-                "auth" : true,
-                "title" : "协议",
-                "icon" : "el-icon-menu"
-            },
-            "component" : "views/About/Lin.vue",
-            "_id" : ObjectId("601e2a407959918d5caa682b")
+            "component" : "views/Config/Config.vue"
         }
     ]
 }
 ```
 
 - 目前菜单放到了mongodb数据库中
-
+- 上面的菜单是最重要的一个，把这个菜单信息放入mongodb/admin-config数据集
+- 数据库的名称在services文件夹里面
 
 # 预览 
 
