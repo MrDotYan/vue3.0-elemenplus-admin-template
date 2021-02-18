@@ -33,7 +33,7 @@ export default defineComponent({
       editor.config.height = 500;
       editor.config.zIndex = 1;
       // 获取编辑内容
-      editor.config.onchange = (newHtml: any) => {
+      editor.config.onchange = (newHtml: string) => {
         context.value = newHtml;
       };
 
@@ -52,42 +52,44 @@ export default defineComponent({
 
 <style lang='less' scoped>
 .padding10px {
-  padding: 10px;
+  padding: 0.625rem /* 10px -> .625rem */;
   width: 100%;
   box-sizing: border-box;
   text-align: left;
-  width: calc(100vw - 200px);
+  width: calc(100vw - 12.5rem /* 200px -> 12.5rem */);
 }
 .edit-rich-text {
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem /* 30px -> 1.875rem */;
 }
 .padding30px {
-  padding: 30px;
+  padding: 1.875rem /* 30px -> 1.875rem */;
 }
 .wrapper-drawer {
-  padding: 30px;
+  padding: 1.875rem /* 30px -> 1.875rem */;
   display: flex;
   justify-content: center;
   align-items: center;
   .phone {
+    // 手机背景
     background: url("../../assets/image/phone.svg") no-repeat;
-    background-size: 445px 870px;
-    width: 445px;
-    height: 870px;
+    background-size: 27.8125rem /* 445px -> 27.8125rem */ 54.375rem
+      /* 870px -> 54.375rem */;
+    width: 27.8125rem /* 445px -> 27.8125rem */;
+    height: 54.375rem /* 870px -> 54.375rem */;
     position: relative;
     .html {
       position: absolute;
-      top: 80px;
+      top: 5rem /* 80px -> 5rem */;
       left: 0;
       bottom: 0;
       right: 0;
       margin: 0 auto;
-      width: 375px;
-      height: 687px;
+      width: 23.4375rem /* 375px -> 23.4375rem */;
+      height: 42.9375rem /* 687px -> 42.9375rem */;
       background: #fff;
       overflow-y: auto;
       overflow-x: hidden;
-      padding: 4px;
+      padding: 0.25rem /* 4px -> .25rem */;
       box-sizing: border-box;
     }
   }

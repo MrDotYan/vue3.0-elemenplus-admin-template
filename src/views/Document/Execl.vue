@@ -185,18 +185,18 @@ export default defineComponent({
 </script>
 <style lang="less" scoped>
 .padding10px {
-  padding: 10px;
+  padding: 0.625rem /* 10px -> .625rem */;
   text-align: left;
 }
 .column {
   & > .row {
-    margin: 20px;
-    width: calc(100% - 40px);
+    margin: 1.25rem /* 20px -> 1.25rem */;
+    width: calc(100% - 2.5rem /* 40px -> 2.5rem */);
     .wrapper {
       width: 100%;
-      height: 200px;
+      height: 12.5rem /* 200px -> 12.5rem */;
       border: 1px dashed #ccc;
-      margin-bottom: 20px;
+      margin-bottom: 1.25rem /* 20px -> 1.25rem */;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -210,18 +210,22 @@ export default defineComponent({
       }
     }
     label {
-      width: 200px;
+      width: 12.5rem /* 200px -> 12.5rem */;
       display: block;
-      height: 40px;
+      height: 2.5rem /* 40px -> 2.5rem */;
       display: flex;
       justify-content: center;
       align-items: center;
     }
   }
 }
+.table-responsive {
+  width: calc(100vw - 18.75rem /* 300px -> 18.75rem */);
+  overflow-x: auto;
+}
 /* Table Head */
 .table {
-  width: 100%;
+  width: 100% /* 1170px -> 73.125rem */;
 } /* Border styles */
 .table thead,
 .table tr {
@@ -238,8 +242,8 @@ export default defineComponent({
 /* Padding and font style */
 .table td,
 .table th {
-  padding: 5px 10px;
-  font-size: 12px;
+  padding: 5px 0.625rem /* 10px -> .625rem */;
+  font-size: 0.75rem /* 12px -> .75rem */;
   font-family: Verdana;
   color: rgb(177, 106, 104);
 }

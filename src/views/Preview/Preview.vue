@@ -139,7 +139,7 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .preview {
-  padding: 10px;
+  padding: 0.625rem /* 10px -> .625rem */;
 }
 .info {
   display: flex;
@@ -147,8 +147,8 @@ export default defineComponent({
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 300px;
-  border-radius: 10px;
+  height: 18.75rem /* 300px -> 18.75rem */;
+  border-radius: 0.625rem /* 10px -> .625rem */;
   color: #fff;
   background: linear-gradient(to right, #a69dff, #7e72f2);
   .avator {
@@ -156,8 +156,8 @@ export default defineComponent({
       font-size: 69px;
       color: #fff;
     }
-    width: 110px;
-    height: 110px;
+    width: 6.875rem /* 110px -> 6.875rem */;
+    height: 6.875rem /* 110px -> 6.875rem */;
     background: #6457e8;
     border-radius: 50%;
     display: flex;
@@ -165,43 +165,43 @@ export default defineComponent({
     align-items: center;
   }
   .title {
-    margin: 10px;
-    font-size: 20px;
+    margin: 0.625rem /* 10px -> .625rem */;
+    font-size: 1.25rem /* 20px -> 1.25rem */;
   }
   .subtitle {
-    font-size: 16px;
+    font-size: 1rem /* 16px -> 1rem */;
   }
 }
 .charts {
-  height: 300px;
+  height: 18.75rem /* 300px -> 18.75rem */;
 }
 .charts-03 {
-  width: 300px;
+  width: 18.75rem /* 300px -> 18.75rem */;
 }
 .charts-05,
 .charts-06,
 .charts-07 {
-  height: 400px;
+  height: 25rem /* 400px -> 25rem */;
 }
 .total {
   display: flex;
   justify-content: space-between;
   align-items: center;
   .staticer {
-    width: 270px;
+    width: 16.875rem /* 270px -> 16.875rem */;
     i {
-      font-size: 24px;
+      font-size: 1.5rem /* 24px -> 1.5rem */;
       color: #67c23a;
     }
-    font-size: 12px;
+    font-size: 0.75rem /* 12px -> .75rem */;
     .title {
-      font-size: 20px;
+      font-size: 1.25rem /* 20px -> 1.25rem */;
       color: #67c23a;
     }
   }
 }
 .bar {
-  height: 20px;
+  height: 1.25rem /* 20px -> 1.25rem */;
 }
 .drop {
   display: flex;
@@ -212,7 +212,7 @@ export default defineComponent({
     color: #409eff;
   }
   .el-icon-arrow-down {
-    font-size: 12px;
+    font-size: 0.75rem /* 12px -> .75rem */;
   }
 }
 </style>

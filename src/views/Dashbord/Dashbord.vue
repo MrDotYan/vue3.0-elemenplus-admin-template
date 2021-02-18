@@ -70,15 +70,15 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .charts {
-  height: 300px;
+  height: 18.75rem /* 300px -> 18.75rem */;
 }
 .charts-07 {
-  height: 400px;
+  height: 25rem /* 400px -> 25rem */;
 }
 .dashbord {
-  padding: 10px;
+  padding: 0.625rem /* 10px -> .625rem */;
 }
 .bar {
-  height: 20px;
+  height: 1.25rem /* 20px -> 1.25rem */;
 }
 </style>

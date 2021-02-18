@@ -16,7 +16,7 @@
         <el-dialog title="新增菜单" v-model="dialogFormVisible" width="30%">
           <el-form class="from-group" :model="form">
             <el-form-item label="上级菜单" label-width="80px">
-              <el-select v-model="form._fid">
+              <el-select v-model="form._fid" placeholder="请选择上级菜单">
                 <el-option
                   v-for="item in options"
                   :key="item._id"
@@ -178,16 +178,16 @@ export default defineComponent({
 
 <style lang="less"  scoped>
 .system-config {
-  padding: 10px;
+  padding: 0.625rem /* 10px -> .625rem */;
   .toolbar {
-    padding: 10px 10px;
+    padding: 0.625rem /* 10px -> .625rem */ 0.625rem /* 10px -> .625rem */;
     width: 100%;
     text-align: right;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     .alert {
-      margin: 0 10px;
+      margin: 0 0.625rem /* 10px -> .625rem */;
     }
   }
   .from-group {
@@ -201,7 +201,7 @@ export default defineComponent({
     justify-content: space-between;
     align-items: center;
     div {
-      width: 100px;
+      width: 6.25rem /* 100px -> 6.25rem */;
     }
   }
 }

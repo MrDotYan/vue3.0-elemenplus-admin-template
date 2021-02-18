@@ -202,14 +202,14 @@ export default defineComponent({
 }
 
 .logo {
-  height: 60px;
+  height: 3.75rem /* 60px -> 3.75rem */;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 20px;
+  font-size: 1.25rem /* 20px -> 1.25rem */;
   img {
-    height: 40px;
+    height: 2.5rem /* 40px -> 2.5rem */;
   }
 }
 .el-menu-vertical {
@@ -218,6 +218,6 @@ export default defineComponent({
   overflow-y: auto;
 }
 .el-menu-vertical:not(.el-menu--collapse) {
-  width: 200px;
+  width: 12.5rem /* 200px -> 12.5rem */;
 }
 </style>

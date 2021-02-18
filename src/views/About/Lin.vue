@@ -27,13 +27,13 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .padding10px {
-  padding: 10px;
-  width: 960px;
+  padding: 0.625rem /* 10px -> .625rem */;
+  width: 60rem /* 960px -> 60rem */;
   overflow: hidden;
   box-sizing: border-box;
   margin: 0 auto;
   .lin {
-    width: 600px;
+    width: 37.5rem /* 600px -> 37.5rem */;
     overflow-y: auto;
     overflow-x: hidden;
     text-align: left;

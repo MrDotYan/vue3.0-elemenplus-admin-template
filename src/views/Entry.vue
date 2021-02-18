@@ -112,14 +112,14 @@ export default defineComponent({
   background-color: #b3c0d1;
   color: #333;
   text-align: center;
-  height: 60px;
-  line-height: 60px;
+  height: 3.75rem /* 60px -> 3.75rem */;
+  line-height: 3.75rem /* 60px -> 3.75rem */;
 }
 
 .el-footer {
   background-color: #b3c0d1;
   text-align: center;
-  height: 60px;
+  height: 3.75rem /* 60px -> 3.75rem */;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -133,7 +133,7 @@ export default defineComponent({
   align-items: center;
   color: #fff;
   .collaspe {
-    font-size: 34px;
+    font-size: 2.125rem /* 34px -> 2.125rem */;
     i {
       cursor: pointer;
     }
@@ -146,7 +146,7 @@ export default defineComponent({
   text-align: center;
   padding: 0px;
   .breadcrumb {
-    padding: 10px;
+    padding: 0.625rem /* 10px -> .625rem */;
     background: #fff;
   }
 }
@@ -154,14 +154,14 @@ export default defineComponent({
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-right: 30px;
+  margin-right: 1.875rem /* 30px -> 1.875rem */;
   .full-screen {
-    margin: 0 10px;
+    margin: 0 0.625rem /* 10px -> .625rem */;
   }
 }
 .context {
   width: 100%;
-  height: calc(100vh - 154px);
+  height: calc(100vh - 9.625rem /* 154px -> 9.625rem */);
   overflow-x: hidden;
   overflow-y: auto;
 }

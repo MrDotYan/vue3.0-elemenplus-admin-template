@@ -1,7 +1,8 @@
 export default [{
   date: "2021/2/2",
   context: "更新github模板 - init",
-  who: "MrDotYan", color: '#0bbd87'
+  who: "MrDotYan",
+  color: '#0bbd87'
 
 }, {
   date: "2021/2/4",
@@ -23,4 +24,9 @@ export default [{
   context: "更新github模板 - 新增文档处理，包括word，execl，pdf，markdown，富文本",
   who: "MrDotYan", color: '#0bbd87'
 
-}].reverse()
+}, {
+  date: "2021/2/18",
+  context: "更新github模板 - 修改px到rem",
+  who: "MrDotYan", color: '#0bbd87'
+
+},].reverse()

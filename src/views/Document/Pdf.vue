@@ -160,25 +160,25 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .context {
-  width: 720px;
+  width: 45rem /* 720px -> 45rem */;
   text-align: left;
-  margin: 30px auto;
+  margin: 1.875rem /* 30px -> 1.875rem */ auto;
 }
 .doc-wrapper {
-  padding: 10px;
+  padding: 0.625rem /* 10px -> .625rem */;
   text-align: left;
   .toolbar {
-    width: 720px;
-    margin: 30px auto;
+    width: 45rem /* 720px -> 45rem */;
+    margin: 1.875rem /* 30px -> 1.875rem */ auto;
     text-align: right;
   }
   .docjs {
-    width: 720px;
-    margin: 30px auto;
+    width: 45rem;
+    margin: 1.875rem /* 30px -> 1.875rem */ auto;
   }
   .link {
     color: aquamarine;
-    margin: 10px;
+    margin: 0.625rem /* 10px -> .625rem */;
   }
 }
 </style>

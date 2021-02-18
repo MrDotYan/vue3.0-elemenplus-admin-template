@@ -127,17 +127,17 @@ export default defineComponent({
   background: url("../assets/background.png");
 }
 .wrapper {
-  width: 500px;
-  height: 400px;
+  width: 31.25rem /* 500px -> 31.25rem */;
+  height: 25rem /* 400px -> 25rem */;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 0.625rem /* 10px -> .625rem */;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
   background: rgb(225, 243, 216);
   .el-form {
-    width: 360px;
+    width: 22.5rem /* 360px -> 22.5rem */;
   }
   .btn {
     width: 100%;

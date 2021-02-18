@@ -9,6 +9,7 @@ const config = require('./routes/config');
 const doc = require('./routes/doc');
 const pdf = require('./routes/pdf');
 const lin = require('./routes/lin');
+const history = require('./routes/history');
 
 app.use(cors());
 // routes
@@ -18,5 +19,6 @@ app.use(config.routes(), config.allowedMethods());
 app.use(doc.routes(), doc.allowedMethods());
 app.use(pdf.routes(), pdf.allowedMethods());
 app.use(lin.routes(), lin.allowedMethods());
+app.use(history.routes(), history.allowedMethods());
 
 module.exports = app

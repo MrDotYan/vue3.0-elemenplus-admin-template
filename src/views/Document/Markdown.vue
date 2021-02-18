@@ -73,7 +73,7 @@ export default defineComponent({
 
 <style lang="less" scoped>
 .padding10px {
-  padding: 10px;
+  padding: 0.625rem /* 10px -> .625rem */;
   text-align: left;
   width: 82vw;
   height: 100%;
@@ -84,29 +84,29 @@ export default defineComponent({
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 0.625rem /* 10px -> .625rem */;
   overflow: hidden;
   width: 80vw;
   height: 100%;
 }
 .edit-container {
   width: 48%;
-  height: 700px;
+  height: 43.75rem /* 700px -> 43.75rem */;
   border: 1px solid #ccc;
   outline: none;
-  padding: 10px;
+  padding: 0.625rem /* 10px -> .625rem */;
   overflow-y: auto;
   overflow-x: hidden;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   -webkit-user-select: auto;
 }
 .show-container {
   width: 48%;
-  height: 700px;
+  height: 43.75rem /* 700px -> 43.75rem */;
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 0.625rem /* 10px -> .625rem */;
   overflow-y: auto;
   overflow-x: hidden;
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
 </style>

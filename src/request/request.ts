@@ -5,7 +5,7 @@ import axios from 'axios';
 import QS from 'qs';
 
 //默认地址
-axios.defaults.baseURL = 'http://192.168.8.157:3000';
+axios.defaults.baseURL = 'http://localhost:3000';
 // axios.defaults.baseURL = "/";
 
 // 请求超时时间
