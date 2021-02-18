@@ -8,20 +8,39 @@
         label-width="80px"
         :inline="false"
       >
-        <el-form-item label-width="0px">
-          <el-input v-model="form.userName" placeholder="用户名"></el-input>
-        </el-form-item>
-        <el-form-item label-width="0px">
-          <el-input v-model="form.password" placeholder="密码"></el-input>
-        </el-form-item>
+        <div class="login-box" v-if="!isRegister">
+          <el-form-item label-width="0px">
+            <el-input v-model="form.userName" placeholder="用户名"></el-input>
+          </el-form-item>
+          <el-form-item label-width="0px">
+            <el-input v-model="form.passWord" placeholder="密码"></el-input>
+          </el-form-item>
+        </div>
+        <div class="register-box" v-else>
+          <el-form-item label-width="0px">
+            <el-input v-model="form.userName" placeholder="用户名"></el-input>
+          </el-form-item>
+          <el-form-item label-width="0px">
+            <el-input v-model="form.passWord" placeholder="密码"></el-input>
+          </el-form-item>
+          <el-form-item label-width="0px">
+            <el-input
+              v-model="form.rePassWord"
+              placeholder="重复密码"
+            ></el-input>
+          </el-form-item>
+        </div>
         <el-form-item label-width="0px">
           <el-button
             class="btn"
             type="primary"
             @click="loginSubmit"
-            :disabled="!form.userName || !form.password"
-            >登录</el-button
+            :disabled="!form.userName || !form.passWord"
+            >{{ isRegister ? "注册" : "登录" }}</el-button
           >
+        </el-form-item>
+        <el-form-item label-width="0px" v-if="!isRegister">
+          <span class="register" @click="register">注册</span>
         </el-form-item>
       </el-form>
     </div>
@@ -30,11 +49,12 @@
 
 <script lang="ts">
 import sessionStore from "store/storages/sessionStorage";
-import { defineComponent, reactive } from "vue";
+import { defineComponent, reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import Api from "@/request/api";
 import sRouters from "@/router/handle";
 import { useStore } from "vuex";
+import { ElMessage } from "element-plus";
 
 export default defineComponent({
   setup() {
@@ -42,8 +62,11 @@ export default defineComponent({
     // 表单
     const form = reactive({
       userName: "",
-      password: "",
+      passWord: "",
+      rePassWord: "",
     });
+
+    const isRegister = ref(false);
     // 获取refs，注意这里和vue2.0写法不一样了
     let formRef: HTMLFormElement;
     const setFormRef = function (el: HTMLFormElement) {
@@ -93,26 +116,64 @@ export default defineComponent({
           : sessionRouters[0]?.path,
       });
     };
+    const login = function () {
+      Api.login({
+        params: JSON.stringify({
+          userName: form.userName,
+          passWord: form.passWord,
+        }),
+      }).then((res: any) => {
+        if (res.code === 1) {
+          // 缓存当前获取的token信息
+          sessionStore.write("token", res.data.token);
+          sessionStore.write("user", JSON.stringify(res.data.user));
+          // 如果验证成功，那就提交信息，获取菜单数据
+          // 现在的这个请求，是把json放到了public目录下
+          // 相当于当前域名同源请求
+          Api.getMenu({}).then((configInfo) => {
+            // 缓存当前菜单培训hi信息
+            sessionStore.write("config", JSON.stringify(configInfo));
+            go();
+          });
+        } else {
+          ElMessage.error(res.message);
+        }
+      });
+    };
+    const register = function () {
+      isRegister.value = true;
+    };
+    const registerActions = function () {
+      if (form.passWord === form.rePassWord) {
+        const data = {
+          userName: form.userName,
+          passWord: form.passWord,
+        };
+        Api.register({
+          ...data,
+        }).then((res) => {
+          console.log(res);
+        });
+      } else {
+        ElMessage.error("两次密码不一致!");
+      }
+    };
     // 登录
     const loginSubmit = function (): void {
       // 验证表单
       formRef.validate((pass: boolean) => {
         // 回调函数返回一个是否验证通过的布尔值
         if (pass) {
-          // 如果验证成功，那就提交信息，获取菜单数据
-          // 现在的这个请求，是把json放到了public目录下
-          // 相当于当前域名同源请求
-          Api.getMenu({}).then((res) => {
-            // 缓存当前菜单培训hi信息
-            sessionStore.write("config", JSON.stringify(res));
-            // 缓存当前获取的token信息
-            sessionStore.write("token", "achg");
-            go();
-          });
+          if (isRegister.value) {
+            registerActions();
+          } else {
+            login();
+          }
         }
       });
     };
-    return { setFormRef, form, rules, loginSubmit };
+
+    return { setFormRef, form, rules, isRegister, register, loginSubmit };
   },
 });
 </script>
@@ -135,12 +196,15 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background: rgb(225, 243, 216);
   .el-form {
     width: 22.5rem /* 360px -> 22.5rem */;
   }
   .btn {
     width: 100%;
+  }
+  .register {
+    color: #09f;
+    cursor: pointer;
   }
 }
 </style>

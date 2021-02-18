@@ -3,6 +3,7 @@
   */
 import axios from 'axios';
 import QS from 'qs';
+import sessionStore from 'store/storages/sessionStorage';
 
 //默认地址
 axios.defaults.baseURL = 'http://localhost:3000';
@@ -17,7 +18,20 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 // 请求拦截器
 axios.interceptors.request.use(
   config => {
-    return config;
+    console.log({
+      ...config,
+      headers: {
+        ...config.headers,
+        XToken: sessionStore.read('token')
+      }
+    })
+    return {
+      ...config,
+      headers: {
+        ...config.headers,
+        XToken: sessionStore.read('token')
+      }
+    };
   },
   error => {
     return Promise.reject(error);

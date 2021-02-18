@@ -1,3 +1,5 @@
+
+const bodyparser = require('koa-bodyparser')
 const Koa = require('koa')
 const app = new Koa()
 
@@ -10,6 +12,11 @@ const doc = require('./routes/doc');
 const pdf = require('./routes/pdf');
 const lin = require('./routes/lin');
 const history = require('./routes/history');
+const login = require('./routes/login');
+
+app.use(bodyparser({
+  enableTypes: ['json', 'form', 'text']
+}))
 
 app.use(cors());
 // routes
@@ -20,5 +27,6 @@ app.use(doc.routes(), doc.allowedMethods());
 app.use(pdf.routes(), pdf.allowedMethods());
 app.use(lin.routes(), lin.allowedMethods());
 app.use(history.routes(), history.allowedMethods());
+app.use(login.routes(), login.allowedMethods());
 
 module.exports = app

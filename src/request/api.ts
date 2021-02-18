@@ -8,6 +8,8 @@ const downloadPdf = (params: any = {}) => http.get('/pdf/pdf', params);
 const licenseContext = (params: any = {}) => http.get('/license/license', params);
 const insertHistory = (params: any = {}) => http.get('/history/insert', params);
 const getHistory = (params: any = {}) => http.get('/history/all', params);
+const login = (params: any = {}) => http.get('/login/login', params);
+const register = (data: any = {}) => http.post('/login/register', data)
 export default {
   insertMenu,
   getMenu,
@@ -15,5 +17,7 @@ export default {
   downloadPdf,
   licenseContext,
   insertHistory,
-  getHistory
+  getHistory,
+  login,
+  register
 }

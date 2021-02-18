@@ -14,11 +14,10 @@ class MariaDBModel {
   });
 
   async ModelActions(sqlStr) {
-    const conn;
+    let conn;
     try {
       conn = await this.pool.getConnection();
-      const result = await conn.query(sqlStr, [1, "mariadb"]);
-      return result;
+      return await conn.query(sqlStr, [1, "mariadb"]);
     } catch (error) {
       return error;
     }

@@ -1,4 +1,5 @@
 const ConfigModel = require('../model/config');
+const Base = require('./base');
 const ObjectId = require('mongodb').ObjectId;
 
 module.exports = class ConfigController {

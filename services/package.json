@@ -11,6 +11,7 @@
   "dependencies": {
     "debug": "^4.1.1",
     "docx": "^5.5.0",
+    "jsonwebtoken": "^8.5.1",
     "jspdf": "^2.3.0",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
