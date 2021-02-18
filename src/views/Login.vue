@@ -151,8 +151,22 @@ export default defineComponent({
         };
         Api.register({
           ...data,
-        }).then((res) => {
-          console.log(res);
+        }).then((res: any) => {
+          if (res.code === 1) {
+            // 缓存当前获取的token信息
+            sessionStore.write("token", res.data.token);
+            sessionStore.write("user", JSON.stringify(res.data.user));
+            // 如果验证成功，那就提交信息，获取菜单数据
+            // 现在的这个请求，是把json放到了public目录下
+            // 相当于当前域名同源请求
+            Api.getMenu({}).then((configInfo) => {
+              // 缓存当前菜单培训hi信息
+              sessionStore.write("config", JSON.stringify(configInfo));
+              go();
+            });
+          } else {
+            ElMessage.error(res.message);
+          }
         });
       } else {
         ElMessage.error("两次密码不一致!");
