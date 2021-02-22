@@ -21,14 +21,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from "vue";
+import { defineComponent, onMounted, ref, onUnmounted, nextTick } from "vue";
 import E from "wangeditor";
 export default defineComponent({
   setup() {
     const context = ref("");
+    let editor: any;
+
     onMounted(() => {
       // 要在mounted以后才能找到dom结构
-      const editor = new E("#edit-rich-text");
+      editor = new E("#edit-rich-text");
       // 设置编辑器配置
       editor.config.height = 500;
       editor.config.zIndex = 1;
@@ -38,6 +40,9 @@ export default defineComponent({
       };
 
       editor.create();
+    });
+    onUnmounted(() => {
+      editor.destroy();
     });
     // 打开抽屉预览
     const drawer = ref(false);
