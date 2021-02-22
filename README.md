@@ -1,5 +1,13 @@
 # 玩转项目
 
+# 线上预览
+
+<a href="http://ve3.onlyylt.top/">线上预览</a>
+
+```bash
+http://ve3.onlyylt.top/
+```
+
 ```bash
 git clone  https://github.com/MrDotYan/vue3.0-elemenplus-admin-template.git && 
 cd vue3.0-elemenplus-admin-template && yarn install && yarn serve
