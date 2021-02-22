@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from "vue";
+import { defineComponent, onMounted, onUnmounted } from "vue";
 import * as echarts from "echarts";
 import chartsOptions from "./data";
 
@@ -54,6 +54,7 @@ export default defineComponent({
       // 绘制图表
       myChart.setOption(options);
     };
+
     onMounted(() => {
       createCharts("charts-01", chartsOptions.barChartsOptions);
       createCharts("charts-02", chartsOptions.pieChartsOption);
@@ -62,6 +63,20 @@ export default defineComponent({
       createCharts("charts-05", chartsOptions.bigBarChartsOptions);
       createCharts("charts-06", chartsOptions.circlePieChartsOptions);
       createCharts("charts-07", chartsOptions.LineKChartsOptions);
+    });
+
+    const destroyCharts = function (id: string) {
+      echarts.dispose(document.getElementById(id) as HTMLCanvasElement);
+    };
+
+    onUnmounted(() => {
+      destroyCharts("charts-01");
+      destroyCharts("charts-02");
+      destroyCharts("charts-03");
+      destroyCharts("charts-04");
+      destroyCharts("charts-05");
+      destroyCharts("charts-06");
+      destroyCharts("charts-07");
     });
     return {};
   },

@@ -609,11 +609,11 @@ const LineKChartsOptions = {
       },
       markPoint: {
         label: {
-          normal: {
-            formatter: function (param: any) {
-              return param != null ? Math.round(param.value) : '';
-            }
-          }
+          // normal: {
+          //   formatter: function (param: any) {
+          //     return param != null ? Math.round(param.value) : '';
+          //   }
+          // }
         },
         data: [
           {

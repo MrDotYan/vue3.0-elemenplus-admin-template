@@ -109,7 +109,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from "vue";
+import { defineComponent, onMounted, onUnmounted, ref } from "vue";
 import * as echarts from "echarts";
 import chartsOptions from "./data";
 export default defineComponent({
@@ -120,9 +120,10 @@ export default defineComponent({
         document.getElementById(id) as HTMLCanvasElement
       );
       // 绘制图表
-      myChart.setOption(options);
+      return myChart.setOption(options);
     };
     const silderValue = ref(46);
+
     onMounted(() => {
       createCharts("charts-01", chartsOptions.lineCharts01);
       createCharts("charts-02", chartsOptions.lineCharts02);
@@ -131,6 +132,20 @@ export default defineComponent({
       createCharts("charts-05", chartsOptions.circleCahrtsOptions);
       createCharts("charts-06", chartsOptions.LDChartsOptions);
       createCharts("charts-07", chartsOptions.speedChartsOptions);
+    });
+
+    const destroyCharts = function (id: string) {
+      echarts.dispose(document.getElementById(id) as HTMLCanvasElement);
+    };
+
+    onUnmounted(() => {
+      destroyCharts("charts-01");
+      destroyCharts("charts-02");
+      destroyCharts("charts-03");
+      destroyCharts("charts-04");
+      destroyCharts("charts-05");
+      destroyCharts("charts-06");
+      destroyCharts("charts-07");
     });
     return { silderValue };
   },

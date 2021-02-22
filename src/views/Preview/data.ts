@@ -198,8 +198,8 @@ const circleCahrtsOptions = {
       width: 50,
       height: 10,
       fontSize: 12,
-      color: 'auto',
-      borderColor: 'auto',
+      color: 'inherit',
+      borderColor: 'inherit',
       borderRadius: 10,
       borderWidth: 1,
       formatter: '{value}%'

@@ -7,6 +7,7 @@ import sessionStore from 'store/storages/sessionStorage';
 
 //默认地址
 axios.defaults.baseURL = "http://localhost:3000";
+// axios.defaults.baseURL = "http://ve3admin.onlyylt.top";
 
 // 请求超时时间
 axios.defaults.timeout = 10000;
