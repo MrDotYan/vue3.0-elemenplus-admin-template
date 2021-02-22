@@ -30,13 +30,16 @@ module.exports = class LoginController extends Base {
   async register(data) {
     const result = await LoginModel.registerActions(data);
 
+    const user = result.data;
+    delete user.passWord;
+
     if (result.registerStatus.warningStatus !== undefined && result.registerStatus.warningStatus == 0) {
       return {
         code: 1,
         message: "注册成功！",
         data: {
-          user: result.data,
-          token: this.createToken({ userName: data.userName })
+          user: user,
+          token: this.createToken({ ...user })
         }
       }
     } else {
@@ -44,7 +47,7 @@ module.exports = class LoginController extends Base {
         code: 0,
         message: "注册失败！",
         data: {
-          user: result.data,
+          user: null,
           token: null
         }
       }

@@ -6,8 +6,7 @@ import QS from 'qs';
 import sessionStore from 'store/storages/sessionStorage';
 
 //默认地址
-axios.defaults.baseURL = 'http://localhost:3000';
-// axios.defaults.baseURL = "/";
+axios.defaults.baseURL = "http://localhost:3000";
 
 // 请求超时时间
 axios.defaults.timeout = 10000;

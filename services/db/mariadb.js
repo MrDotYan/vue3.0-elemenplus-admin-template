@@ -13,11 +13,11 @@ class MariaDBModel {
     port: MariaDBConfig.port
   });
 
-  async ModelActions(sqlStr) {
+  async ModelActions(sqlStr, data) {
     let conn;
     try {
       conn = await this.pool.getConnection();
-      return await conn.query(sqlStr, [1, "mariadb"]);
+      return await conn.query(sqlStr, data);
     } catch (error) {
       return error;
     }

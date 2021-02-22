@@ -39,9 +39,9 @@
             >{{ isRegister ? "注册" : "登录" }}</el-button
           >
         </el-form-item>
-        <el-form-item label-width="0px" v-if="!isRegister">
+        <!-- <el-form-item label-width="0px" v-if="!isRegister">
           <span class="register" @click="register">注册</span>
-        </el-form-item>
+        </el-form-item> -->
       </el-form>
     </div>
   </div>
@@ -61,8 +61,8 @@ export default defineComponent({
     // 定义响应式数据
     // 表单
     const form = reactive({
-      userName: "",
-      passWord: "",
+      userName: "admin",
+      passWord: "admin",
       rePassWord: "",
     });
 
