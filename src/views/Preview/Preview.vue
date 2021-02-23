@@ -112,6 +112,7 @@
 import { defineComponent, onMounted, onUnmounted, ref } from "vue";
 import * as echarts from "echarts";
 import chartsOptions from "./data";
+import { onBeforeRouteLeave } from "vue-router";
 export default defineComponent({
   setup() {
     const createCharts = function (id: string, options: any) {
@@ -138,7 +139,9 @@ export default defineComponent({
       echarts.dispose(document.getElementById(id) as HTMLCanvasElement);
     };
 
-    onUnmounted(() => {
+    // onUnmounted(() => {});
+
+    onBeforeRouteLeave(() => {
       destroyCharts("charts-01");
       destroyCharts("charts-02");
       destroyCharts("charts-03");
