@@ -18,7 +18,7 @@
     "compression-webpack-plugin": "^6.1.0",
     "core-js": "^3.6.5",
     "echarts": "^5.0.1",
-    "element-plus": "^1.0.2-beta.31",
+    "element-plus": "^1.0.2-beta.32",
     "file-saver": "^2.0.5",
     "highlight.js": "^10.5.0",
     "html-docx-js-typescript": "^0.1.5",
