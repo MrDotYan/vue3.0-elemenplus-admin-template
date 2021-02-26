@@ -9,7 +9,9 @@ const licenseContext = (params: any = {}) => http.get('/license/license', params
 const insertHistory = (params: any = {}) => http.get('/history/insert', params);
 const getHistory = (params: any = {}) => http.get('/history/all', params);
 const login = (params: any = {}) => http.get('/login/login', params);
-const register = (data: any = {}) => http.post('/login/register', data)
+const register = (data: any = {}) => http.post('/login/register', data);
+const shape = (data: any = {}) => http.get('/shape/all', data);
+const region = (data: any = {}) => http.get('/region/china', data);
 export default {
   insertMenu,
   getMenu,
@@ -19,5 +21,7 @@ export default {
   insertHistory,
   getHistory,
   login,
-  register
+  register,
+  shape,
+  region
 }

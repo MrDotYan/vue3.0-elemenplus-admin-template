@@ -147,20 +147,28 @@ function deleteOne(documentName, data) {
 
 function findSkip(documentName, data, page = 0, size = 20) {
   return new Promise((resolve, reject) => {
-    MongoClient.connect(url, function (err, client) {
+    MongoClient.connect(url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }, function (err, client) {
       if (err === null) {
         const db = client.db(dbName);
-        let ops = JSON.stringify(data) === "{}" ? {} : data;
+        let ops = JSON.stringify(data) === "{}" ? {} : (data._id ? {
+          ...data,
+          _id: ObjectId(data._id)
+        } : data);
         db.collection(documentName).find(ops).skip(page * size).limit(parseInt(size)).toArray().then(res => {
+
           db.collection(documentName).find({}).toArray().then(len => {
             resolve({ data: res, total: len.length });
           }).catch(err => {
             reject(err);
+          }).finally(() => {
+            client.close()
           })
         }).catch(err => {
+          console.log(err);
           reject(err);
-        }).finally(() => {
-          client.close()
         })
       } else {
         console.log(JSON.stringify(err))

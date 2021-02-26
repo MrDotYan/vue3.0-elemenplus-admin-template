@@ -13,6 +13,8 @@ const pdf = require('./routes/pdf');
 const lin = require('./routes/lin');
 const history = require('./routes/history');
 const login = require('./routes/login');
+const region = require('./routes/region');
+const shape = require('./routes/shape');
 
 app.use(bodyparser({
   enableTypes: ['json', 'form', 'text']
@@ -28,5 +30,7 @@ app.use(pdf.routes(), pdf.allowedMethods());
 app.use(lin.routes(), lin.allowedMethods());
 app.use(history.routes(), history.allowedMethods());
 app.use(login.routes(), login.allowedMethods());
+app.use(region.routes(), region.allowedMethods());
+app.use(shape.routes(), shape.allowedMethods());
 
 module.exports = app

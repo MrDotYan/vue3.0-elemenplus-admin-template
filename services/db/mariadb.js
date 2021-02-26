@@ -20,6 +20,8 @@ class MariaDBModel {
       return await conn.query(sqlStr, data);
     } catch (error) {
       return error;
+    } finally {
+      conn.release();
     }
   }
 }

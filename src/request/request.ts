@@ -4,9 +4,12 @@
 import axios from 'axios';
 import QS from 'qs';
 import sessionStore from 'store/storages/sessionStorage';
+import { ElLoading } from 'element-plus';
 
+
+let loading: any;
 //默认地址
-// axios.defaults.baseURL = "http://localhost:3000";
+// axios.defaults.baseURL = "http://localhost:4563";
 axios.defaults.baseURL = "http://ve3admin.onlyylt.top";
 
 // 请求超时时间
@@ -18,6 +21,8 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 // 请求拦截器
 axios.interceptors.request.use(
   config => {
+
+    loading = ElLoading.service();
     console.log({
       ...config,
       headers: {
@@ -40,6 +45,7 @@ axios.interceptors.request.use(
 // 响应拦截器
 axios.interceptors.response.use(
   response => {
+    loading.close();
     if (response.status === 200) {
       return Promise.resolve(response);
     } else {
@@ -48,6 +54,7 @@ axios.interceptors.response.use(
   },
   // 服务器状态码不是200的情况
   error => {
+    loading.close();
     if (error.response.status) {
       window.console.log(error.response.data.message);
       return Promise.reject(error.response);
