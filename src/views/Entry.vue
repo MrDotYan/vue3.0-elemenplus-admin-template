@@ -39,7 +39,11 @@
           </el-breadcrumb>
         </div>
         <div class="context">
-          <router-view> </router-view>
+          <router-view v-slot="{ Component }">
+            <transition name="el-zoom-in-center" mode="out-in">
+              <component :is="Component" />
+            </transition>
+          </router-view>
         </div>
       </el-main>
       <el-footer>

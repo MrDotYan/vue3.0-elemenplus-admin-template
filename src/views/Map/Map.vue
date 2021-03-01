@@ -31,6 +31,7 @@ import { Fill, Stroke, Style } from "ol/style";
 import { defaults as defaultsControl } from "ol/control";
 
 import API from "../../request/api";
+import { onBeforeRouteLeave } from "vue-router";
 
 export default defineComponent({
   setup() {
@@ -49,7 +50,9 @@ export default defineComponent({
           counteries.value = res.data.find((ele: any) => {
             return ele.type === "world";
           });
-          cb && cb();
+          if (counteries.value) {
+            cb && cb();
+          }
         } else {
           ElMessage.error(res.message);
         }
@@ -165,12 +168,27 @@ export default defineComponent({
     onMounted(() => {
       getCounterise(() => {
         createMap(() => {
+          const dom = document.getElementsByClassName("ol-viewport");
+          const len = dom.length;
+          if (len > 1) {
+            dom[0].parentElement?.removeChild(dom[0]);
+          }
+
+          console.log(document.getElementsByClassName("ol-viewport"));
           createWorldMapLayer(() => {
             //数据源添加图层
             getPoint();
           });
         });
       });
+    });
+
+    onBeforeRouteLeave(() => {
+      map.getOverlays().clear();
+      map.removeLayer();
+      map.removeControl();
+      map.removeInteraction();
+      map.removeOverlay();
     });
 
     return { currentPage, pageSize, totalNum, currentChange, sizeChange };
