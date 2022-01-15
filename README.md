@@ -2,12 +2,6 @@
 
 # 线上预览
 
-<a href="http://ve3.onlyylt.top/">线上预览</a>
-
-```bash
-http://ve3.onlyylt.top/
-```
-
 ```bash
 git clone  https://github.com/MrDotYan/vue3.0-elemenplus-admin-template.git && 
 cd vue3.0-elemenplus-admin-template && yarn install && yarn serve
@@ -253,10 +247,3 @@ cd services && yarn install && yarn dev //运行后台程序
     ]
 }
 ```
-
-- 历史信息
-这个我就不贴出来了
-
-- 关于其他的我实在是想不出来写点什么了
-- 那这个项目就会先放置一段时间，如果有bug的话，及时处理一下，也希望更多的大佬来补充一些新的插件或者组件
-- 好的，没啥说的了！回头研究flutter去了
